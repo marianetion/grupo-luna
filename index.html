@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grupo Luna - Juego infantil GL-016</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js"
+    ></script>
+  </head>
+  <body>
+    <main class="page">
+      <section class="product-page" aria-label="Vista de producto">
+        <header class="brand">
+          <img
+            class="brand__logo"
+            src="assets/Logo-Grupo-luna.png"
+            alt="Grupo Luna"
+          />
+        </header>
+
+        <h1 class="title">Equipo de Calistenia MFC-02</h1>
+
+        <section class="viewer-shell" aria-label="Vista en realidad aumentada">
+          <model-viewer
+            id="productViewer"
+            class="viewer"
+            src="models/calistenia-mfc-02.glb"
+            ios-src="models/calistenia-mfc-02.usdz"
+            alt="Equipo de Calistenia MFC-02"
+            ar
+            ar-modes="quick-look scene-viewer webxr"
+            ar-scale="auto"
+            camera-controls
+            touch-action="pan-y"
+            auto-rotate
+            shadow-intensity="1"
+            exposure="1"
+            environment-image="neutral"
+            camera-orbit="0deg 72deg 70%"
+            field-of-view="18deg"
+          >
+            <button slot="ar-button" class="ar-button">Ver en tu espacio</button>
+
+            <div slot="poster" class="viewer__poster" aria-hidden="true">
+              <div class="viewer__poster-surface"></div>
+            </div>
+          </model-viewer>
+        </section>
+
+        <section class="ar-copy" aria-label="Instrucciones de realidad aumentada">
+          <h2>Visualízalo en Realidad Aumentada</h2>
+
+          <div class="gestures">
+            <div class="gesture">
+              <img
+                class="gesture__icon"
+                src="assets/drag-icon.svg"
+                alt=""
+                aria-hidden="true"
+              />
+              <span>Arrastra para mover</span>
+            </div>
+            <div class="gesture">
+              <img
+                class="gesture__icon"
+                src="assets/pinch-icon.svg"
+                alt=""
+                aria-hidden="true"
+              />
+              <span>Pellizca para cambiar tamaño</span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="primary-action" type="button">
+              <img class="action-icon" src="assets/AR-icon.svg" alt="" aria-hidden="true" />
+              <span>Ver en tu espacio</span>
+            </button>
+            <button class="secondary-action" type="button">
+              <img class="action-icon" src="assets/share-icon.svg" alt="" aria-hidden="true" />
+              <span>Compartir enlace</span>
+            </button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer" aria-label="Contacto">
+      <a href="https://grupoluna.com.gt" target="_blank" rel="noreferrer">
+        <img class="footer__icon" src="assets/web-icon.svg" alt="" aria-hidden="true" />
+        <span>grupoluna.com.gt</span>
+      </a>
+      <a href="tel:+50222095665">
+        <img class="footer__icon" src="assets/phone-icon.svg" alt="" aria-hidden="true" />
+        <span>2209-6565</span>
+      </a>
+      <a href="mailto:info@grupolunagt.com">
+        <img class="footer__icon" src="assets/mail-icon.svg" alt="" aria-hidden="true" />
+        <span>info@grupolunagt.com</span>
+      </a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html> 
