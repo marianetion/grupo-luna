@@ -37,8 +37,8 @@ a {
   min-height: 0;
   height: 100%;
   display: grid;
-  place-items: start center;
-  padding: 4px 16px 0;
+  place-items: center;
+  padding: 0 16px;
   overflow: hidden;
 }
 
@@ -47,7 +47,7 @@ a {
   display: grid;
   justify-items: center;
   gap: 8px;
-  transform-origin: top center;
+  transform-origin: center center;
   transform: scale(
     min(1, calc(100svw / 390px), calc((100svh - 56px) / 715px))
   );
@@ -237,14 +237,14 @@ a {
 .footer {
   height: 52px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 0.95fr 0.7fr 1.35fr;
   align-items: center;
   justify-items: center;
   gap: 4px;
-  padding: 0 8px;
+  padding: 0 10px;
   background: var(--footer);
   color: #fff;
-  font-size: clamp(8px, 1.4vw, 12px);
+  font-size: clamp(9px, 1.55vw, 12px);
   line-height: 1;
 }
 
@@ -252,7 +252,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3px;
+  gap: 4px;
   min-width: 0;
   max-width: 100%;
   opacity: 0.96;
