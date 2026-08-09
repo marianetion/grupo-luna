@@ -37,8 +37,8 @@ a {
   min-height: 0;
   height: 100%;
   display: grid;
-  place-items: center;
-  padding: 6px 16px 0;
+  place-items: start center;
+  padding: 4px 16px 0;
   overflow: hidden;
 }
 
@@ -46,9 +46,13 @@ a {
   width: min(100%, 393px);
   display: grid;
   justify-items: center;
-  gap: 12px;
+  gap: 8px;
   text-align: center;
   transform-origin: top center;
+  transform: scale(
+    min(1, calc(100svw / 390px), calc((100svh - 56px) / 715px))
+  );
+  will-change: transform;
 }
 
 .brand {
@@ -58,14 +62,14 @@ a {
 }
 
 .brand__logo {
-  width: min(100%, 160px);
+  width: min(100%, 138px);
   height: auto;
   display: block;
 }
 
 .title {
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -111,7 +115,7 @@ a {
   display: grid;
   justify-items: center;
   gap: 16px;
-  padding: 8px 0 10px;
+  padding: 4px 0 6px;
 }
 
 .ar-copy h2 {
@@ -151,7 +155,8 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  margin-top: 2px;
 }
 
 .primary-action,
@@ -219,8 +224,9 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  gap: 12px;
-  padding: 0 18px;
+  justify-items: center;
+  gap: 6px;
+  padding: 0 12px;
   background: var(--footer);
   color: #fff;
   font-size: 12px;
@@ -232,8 +238,11 @@ a {
   align-items: center;
   justify-content: center;
   gap: 6px;
+  min-width: 0;
+  max-width: 100%;
   opacity: 0.96;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .footer__icon {
@@ -242,47 +251,4 @@ a {
   display: inline-block;
   flex: 0 0 auto;
   object-fit: contain;
-}
-
-@media (max-width: 640px) {
-  .page {
-    padding: 4px 16px 0;
-  }
-
-  .product-page {
-    gap: 10px;
-  }
-
-  .viewer-shell {
-    padding: 0;
-  }
-
-  .viewer {
-    border-radius: 0;
-  }
-
-  .gestures {
-    gap: 18px;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .gesture {
-    flex: 1 1 150px;
-    max-width: 240px;
-  }
-
-  .footer {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: center;
-    height: 52px;
-    padding: 0 12px;
-    gap: 8px;
-  }
-}
-
-@media (max-height: 760px) {
-  .product-page {
-    transform: scale(0.75);
-  }
 }
