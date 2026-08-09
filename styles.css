@@ -47,7 +47,6 @@ a {
   display: grid;
   justify-items: center;
   gap: 8px;
-  text-align: center;
   transform-origin: top center;
   transform: scale(
     min(1, calc(100svw / 390px), calc((100svh - 56px) / 715px))
@@ -58,19 +57,35 @@ a {
 .brand {
   width: 100%;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.brand > * {
+  min-width: 0;
 }
 
 .brand__logo {
-  width: min(100%, 138px);
+  width: min(38%, 116px);
   height: auto;
   display: block;
+  flex: 0 0 auto;
 }
 
 .title {
   margin: 0;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 700;
+  line-height: 1.08;
+  text-align: right;
+  flex: 1 1 auto;
+  white-space: normal;
+  letter-spacing: -0.02em;
+}
+
+.title__line {
+  display: block;
 }
 
 .viewer-shell {
@@ -225,11 +240,11 @@ a {
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-items: center;
-  gap: 6px;
-  padding: 0 12px;
+  gap: 4px;
+  padding: 0 8px;
   background: var(--footer);
   color: #fff;
-  font-size: 12px;
+  font-size: clamp(8px, 1.4vw, 12px);
   line-height: 1;
 }
 
@@ -237,17 +252,17 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 3px;
   min-width: 0;
   max-width: 100%;
   opacity: 0.96;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .footer__icon {
-  width: 12px;
-  height: 12px;
+  width: clamp(9px, 1.25vw, 12px);
+  height: clamp(9px, 1.25vw, 12px);
   display: inline-block;
   flex: 0 0 auto;
   object-fit: contain;
