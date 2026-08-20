@@ -24,6 +24,124 @@ const shareButton =
 const startARButton =
   document.querySelector("#startAR");
 
+  /* =========================================================
+   SWIPE DEL TUTORIAL
+========================================================= */
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+const SWIPE_THRESHOLD = 50;
+
+
+/*
+ * Inicio del gesto
+ */
+tutorialModal?.addEventListener(
+  "touchstart",
+  (event) => {
+
+    if (!tutorialModal.classList.contains("is-open")) {
+      return;
+    }
+
+    const touch = event.changedTouches[0];
+
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+
+  },
+  { passive: true }
+);
+
+
+/*
+ * Final del gesto
+ */
+tutorialModal?.addEventListener(
+  "touchend",
+  (event) => {
+
+    if (!tutorialModal.classList.contains("is-open")) {
+      return;
+    }
+
+    const touch = event.changedTouches[0];
+
+    const deltaX =
+      touch.clientX - touchStartX;
+
+    const deltaY =
+      touch.clientY - touchStartY;
+
+
+    /*
+     * Si el movimiento vertical es mayor
+     * que el horizontal, no lo consideramos
+     * un swipe.
+     */
+    if (
+      Math.abs(deltaY) >
+      Math.abs(deltaX)
+    ) {
+      return;
+    }
+
+
+    /*
+     * Ignorar movimientos pequeños.
+     */
+    if (
+      Math.abs(deltaX) <
+      SWIPE_THRESHOLD
+    ) {
+      return;
+    }
+
+
+    /*
+     * Swipe hacia la izquierda:
+     * siguiente pantalla.
+     */
+    if (deltaX < 0) {
+
+      if (
+        currentTutorialScreen <
+        totalTutorialScreens - 1
+      ) {
+
+        currentTutorialScreen++;
+
+        updateTutorial();
+
+      }
+
+      return;
+    }
+
+
+    /*
+     * Swipe hacia la derecha:
+     * pantalla anterior.
+     */
+    if (deltaX > 0) {
+
+      if (
+        currentTutorialScreen > 0
+      ) {
+
+        currentTutorialScreen--;
+
+        updateTutorial();
+
+      }
+
+    }
+
+  },
+  { passive: true }
+);
+
 
 /* =========================================================
    MODELOS
