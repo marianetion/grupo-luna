@@ -306,24 +306,20 @@ function nextTutorialScreen() {
 
   }
 
-  startARButton?.addEventListener(
+startARButton?.addEventListener(
   "click",
   () => {
 
     closeTutorial();
 
-    window.setTimeout(() => {
+    if (
+      typeof viewer.activateAR ===
+      "function"
+    ) {
 
-      if (
-        typeof viewer.activateAR ===
-        "function"
-      ) {
+      viewer.activateAR();
 
-        viewer.activateAR();
-
-      }
-
-    }, 150);
+    }
 
   }
 );
