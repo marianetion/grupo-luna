@@ -1,281 +1,810 @@
 :root {
-  --bg: #faf8f2;
-  --text: #101010;
-  --muted: #5f5a52;
-  --accent: #f06f3f;
-  --accent-dark: #d85d2b;
-  --footer: #0d5b62;
-  --card: #ffffff;
-  --shadow: 0 22px 70px rgba(16, 16, 16, 0.08);
+  --bg: #f7f7f7;
+  --text: #090909;
+  --accent: #f06b3f;
+  --footer: #00585d;
+
+  --modal: #f7f7f7;
+  --modal-button: #202020;
+  --pagination: #d9d9d9;
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
   box-sizing: border-box;
 }
 
+
 html,
 body {
   margin: 0;
-  height: 100%;
+  width: 100%;
+  min-height: 100%;
+}
+
+
+body {
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+
+body.tutorial-open {
   overflow: hidden;
 }
 
-body {
-  font-family: Inter, Arial, Helvetica, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  display: grid;
-  grid-template-rows: 1fr 52px;
-}
 
 a {
   color: inherit;
   text-decoration: none;
 }
 
-.page {
-  min-height: 0;
-  height: 100%;
-  display: grid;
-  place-items: center;
-  padding: 0 16px;
-  overflow: hidden;
+
+button {
+  font-family: inherit;
 }
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+  min-height: calc(100svh - 40px);
+
+  display: flex;
+  justify-content: center;
+
+  padding:
+    env(safe-area-inset-top)
+    16px
+    18px
+    16px;
+}
+
 
 .product-page {
   width: min(100%, 393px);
-  display: grid;
-  justify-items: center;
-  gap: 8px;
-  transform-origin: center center;
-  transform: scale(
-    min(1, calc(100svw / 390px), calc((100svh - 56px) / 715px))
-  );
-  will-change: transform;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 74px;
 }
+
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .brand {
   width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+
+  padding:
+    0 7px;
+
+  margin-bottom: 20px;
 }
 
-.brand > * {
-  min-width: 0;
+
+.brand__link {
+  display: block;
 }
+
 
 .brand__logo {
-  width: min(38%, 116px);
-  height: auto;
   display: block;
-  flex: 0 0 auto;
+
+  width: 105px;
+  height: auto;
 }
+
+
+.brand__ar-logo {
+  display: block;
+
+  width: 78px;
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
 
 .title {
-  margin: 0;
-  font-size: clamp(14px, 4.2vw, 19px);
+  width: 100%;
+
+  margin: 0 0 8px;
+
+  text-align: center;
+
+  font-size: 17px;
+  line-height: 1.2;
+
   font-weight: 700;
-  line-height: 1.02;
-  text-align: right;
-  flex: 1 1 auto;
-  white-space: normal;
-  letter-spacing: -0.02em;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+
+  letter-spacing: -0.025em;
 }
 
-.title__line {
-  display: block;
-  white-space: nowrap;
-}
+
+/* =========================================================
+   VIEWER
+========================================================= */
 
 .viewer-shell {
-  width: 100%;
-  aspect-ratio: 5 / 4;
+  width: 330px;
+  max-width: 100%;
+
+  height: 253px;
+
+  overflow: hidden;
+
+  background: #fff;
 }
+
 
 .viewer {
   width: 100%;
   height: 100%;
-  aspect-ratio: auto;
+
   display: block;
+
   background: #fff;
+
   border-radius: 0;
+
   overflow: hidden;
+
   box-shadow: none;
+
   --poster-color: transparent;
 }
+
 
 .viewer::part(default-progress-bar) {
   display: none;
 }
 
+
 .viewer__poster {
   width: 100%;
   height: 100%;
+
   display: grid;
   place-items: center;
-  background: linear-gradient(180deg, #fff 0%, #fbfaf6 100%);
+
+  background: #fff;
 }
 
+
 .viewer__poster-surface {
-  width: min(82%, 320px);
-  height: min(54%, 220px);
+  width: 80%;
+  height: 50%;
+
   border-radius: 50%;
+
   filter: blur(24px);
-  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.24), transparent 65%);
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(0, 0, 0, 0.2),
+      transparent 65%
+    );
+
   transform: translateY(28%);
 }
 
+
+/* =========================================================
+   AR COPY
+========================================================= */
+
 .ar-copy {
-  display: grid;
-  justify-items: center;
-  gap: 16px;
-  padding: 4px 0 6px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 34px;
 }
+
 
 .ar-copy h2 {
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.15;
+  margin: 0 0 25px;
+
+  text-align: center;
+
+  font-size: 17px;
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
 }
+
+
+/* =========================================================
+   GESTURES
+========================================================= */
 
 .gestures {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
   width: 100%;
+
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  align-items: center;
+
+  column-gap: 5px;
+
+  margin-bottom: 34px;
 }
+
 
 .gesture {
-  display: inline-flex;
+  min-width: 0;
+
+  display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  color: var(--text);
-  font-size: 14px;
-  line-height: 1.25;
-  max-width: none;
+  justify-content: center;
+
+  gap: 6px;
+
+  font-size: 10px;
+  line-height: 1.2;
+
   text-align: left;
-  white-space: nowrap;
 }
 
+
 .gesture__icon {
-  width: 28px;
-  height: 28px;
+  width: 27px;
+  height: 27px;
+
   flex: 0 0 auto;
+
   object-fit: contain;
 }
+
+
+.gesture__icon--rotate {
+  width: 29px;
+  height: 29px;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
 
 .actions {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-top: 2px;
+
+  gap: 14px;
 }
+
 
 .primary-action,
 .secondary-action,
 .ar-button {
   border: 0;
+
   border-radius: 999px;
-  font: inherit;
-  font-weight: 400;
+
   cursor: pointer;
 }
 
-.primary-action,
-.ar-button {
-  min-width: 224px;
-  padding: 8px 15px;
-  background: var(--accent);
-  color: #fff;
-}
 
-.secondary-action {
-  min-width: 136px;
-  padding: 8px 15px;
-  background: #a8a8a8;
-  color: #fff;
-  font-size: 12px;
-}
+/* PRIMARY */
 
 .primary-action {
+  min-width: 181px;
+  height: 32px;
+
+  padding: 0 15px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   gap: 8px;
+
+  background: var(--accent);
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 400;
 }
 
-.secondary-action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-}
 
-.action-icon {
+.primary-action .action-icon {
   width: 18px;
   height: 18px;
-  object-fit: contain;
-  flex: 0 0 auto;
 }
 
-.secondary-action .action-icon {
-  width: 14px;
-  height: 14px;
+
+/* SECONDARY */
+
+.secondary-action {
+  min-width: 116px;
+  height: 23px;
+
+  padding: 0 11px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  background: #a6a6a6;
+  color: #fff;
+
+  font-size: 10px;
+  font-weight: 400;
 }
+
+
+.secondary-action .action-icon {
+  width: 13px;
+  height: 13px;
+}
+
+
+/* =========================================================
+   NATIVE AR BUTTON
+========================================================= */
 
 .ar-button {
   display: none;
-  position: absolute;
-  left: 50%;
-  bottom: 20px;
-  transform: translateX(-50%);
 }
 
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
 .footer {
-  height: 52px;
+  width: 100%;
+  height: 40px;
+
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
   align-items: center;
-  justify-items: center;
-  gap: 4px;
-  padding: 0 12px;
+
+  padding:
+    0 17px;
+
   background: var(--footer);
+
   color: #fff;
-  font-size: clamp(9px, 1.55vw, 12px);
+
+  font-size: 9px;
   line-height: 1;
 }
 
+
 .footer a {
+  min-width: 0;
+
   display: flex;
   align-items: center;
-  justify-content: center;
+
   gap: 4px;
-  min-width: 0;
-  max-width: 100%;
-  opacity: 0.96;
+
   white-space: nowrap;
-  overflow: visible;
 }
+
 
 .footer a:first-child {
   justify-self: start;
 }
 
+
+.footer a:nth-child(2) {
+  justify-self: center;
+}
+
+
 .footer a:last-child {
   justify-self: end;
 }
 
+
 .footer__icon {
-  width: clamp(9px, 1.25vw, 12px);
-  height: clamp(9px, 1.25vw, 12px);
-  display: inline-block;
+  width: 10px;
+  height: 10px;
+
+  display: block;
+
   flex: 0 0 auto;
+
   object-fit: contain;
+}
+
+
+/* =========================================================
+   TUTORIAL OVERLAY
+========================================================= */
+
+.tutorial-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.18);
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+
+.tutorial-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+
+/* =========================================================
+   TUTORIAL MODAL
+========================================================= */
+
+.tutorial-modal {
+  position: relative;
+
+  width: 265px;
+  height: 315px;
+
+  padding:
+    28px
+    18px
+    16px;
+
+  border-radius: 19px;
+
+  background: var(--modal);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-shadow:
+    0 18px 60px
+    rgba(0, 0, 0, 0.12);
+
+  transform: scale(0.96);
+
+  transition:
+    transform 0.2s ease;
+}
+
+
+.tutorial-overlay.is-open
+.tutorial-modal {
+  transform: scale(1);
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.tutorial-close {
+  position: absolute;
+
+  top: 9px;
+  right: 14px;
+
+  width: 25px;
+  height: 25px;
+
+  border: 0;
+
+  padding: 0;
+
+  background: transparent;
+
+  color: #050505;
+
+  font-size: 25px;
+  line-height: 25px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   TUTORIAL SCREEN
+========================================================= */
+
+.tutorial-screen {
+  width: 100%;
+
+  flex: 1;
+
+  display: none;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  text-align: center;
+}
+
+
+.tutorial-screen.active {
+  display: flex;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.tutorial-number {
+  width: 65px;
+  height: 65px;
+
+  margin-top: 42px;
+  margin-bottom: 36px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #d9d9d9;
+
+  font-size: 38px;
+  line-height: 1;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   TUTORIAL TEXT
+========================================================= */
+
+.tutorial-screen h3 {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.tutorial-pagination {
+  height: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-bottom: 14px;
+}
+
+
+.tutorial-dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: var(--pagination);
+
+  cursor: pointer;
+
+  transition:
+    width 0.15s ease,
+    border-radius 0.15s ease,
+    background 0.15s ease;
+}
+
+
+.tutorial-dot.active {
+  width: 30px;
+
+  border-radius: 999px;
+
+  background: #202020;
+}
+
+
+/* =========================================================
+   NEXT BUTTON
+========================================================= */
+
+.tutorial-next {
+  width: 126px;
+  height: 22px;
+
+  border: 0;
+  border-radius: 999px;
+
+  background: var(--modal-button);
+  color: #fff;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  flex: 0 0 auto;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-height: 760px) {
+
+  .product-page {
+    padding-top: 30px;
+  }
+
+  .brand {
+    margin-bottom: 12px;
+  }
+
+  .viewer-shell {
+    height: 220px;
+  }
+
+  .ar-copy {
+    margin-top: 20px;
+  }
+
+  .ar-copy h2 {
+    margin-bottom: 16px;
+  }
+
+  .gestures {
+    margin-bottom: 20px;
+  }
+
+}
+
+
+@media (max-width: 350px) {
+
+  .product-page {
+    padding-top: 35px;
+  }
+
+  .brand__logo {
+    width: 95px;
+  }
+
+  .brand__ar-logo {
+    width: 68px;
+  }
+
+  .viewer-shell {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 330 / 253;
+  }
+
+  .gesture {
+    font-size: 9px;
+  }
+
+  .gesture__icon {
+    width: 23px;
+    height: 23px;
+  }
+
+  .primary-action {
+    min-width: 175px;
+  }
+
+  .footer {
+    padding: 0 9px;
+    font-size: 8px;
+  }
+
+}
+
+/* =========================================================
+   BOTÓN INICIAR REALIDAD AUMENTADA
+========================================================= */
+
+.tutorial-ar-button {
+  width: 190px;
+  min-width: 190px;
+  height: 32px;
+
+  padding: 0 13px;
+
+  border: 0;
+  border-radius: 999px;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  background: var(--accent);
+  color: #fff;
+
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 400;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+}
+
+
+.tutorial-ar-button .action-icon {
+  width: 17px;
+  height: 17px;
+
+  flex: 0 0 auto;
+
+  object-fit: contain;
+}
+
+
+.tutorial-ar-button span {
+  white-space: nowrap;
 }

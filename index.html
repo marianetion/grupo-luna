@@ -2,32 +2,64 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
     <title>Grupo Luna - Realidad Aumentada</title>
+
     <link rel="stylesheet" href="styles.css" />
+
     <script
       type="module"
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js"
     ></script>
   </head>
+
   <body>
+
     <main class="page">
+
       <section class="product-page" aria-label="Vista de producto">
+
+        <!-- HEADER -->
         <header class="brand">
-        <a href="https://grupoluna.com.gt" target="_blank">
-          <img
-            class="brand__logo"
-            src="assets/Logo-Grupo-luna.png"
-            alt="Grupo Luna"
-          />
+
+          <a
+            href="https://grupoluna.com.gt"
+            target="_blank"
+            rel="noreferrer"
+            class="brand__link"
+          >
+            <img
+              class="brand__logo"
+              src="assets/Logo-Grupo-luna.png"
+              alt="Grupo Luna"
+            />
           </a>
-          <h1 class="title">
-            <span class="title__line">Equipo de Calistenia</span>
-            <span class="title__line">MFC-02</span>
-          </h1>
+
+          <img
+            class="brand__ar-logo"
+            src="assets/AR ICON.svg"
+            alt="Realidad aumentada"
+          />
+
         </header>
 
-        <section class="viewer-shell" aria-label="Vista en realidad aumentada">
+
+        <!-- PRODUCT TITLE -->
+        <h1 class="title">
+          Equipo de Calistenia MFC-02
+        </h1>
+
+
+        <!-- MODEL -->
+        <section
+          class="viewer-shell"
+          aria-label="Vista del equipo de calistenia"
+        >
+
           <model-viewer
             id="productViewer"
             class="viewer"
@@ -46,67 +78,342 @@
             camera-orbit="-205deg 83.86deg 90%"
             field-of-view="18deg"
           >
-            <button slot="ar-button" class="ar-button">Ver en tu espacio</button>
 
-            <div slot="poster" class="viewer__poster" aria-hidden="true">
+            <!--
+              El botón nativo de model-viewer permanece oculto.
+              La activación se controla desde nuestro botón.
+            -->
+            <button
+              slot="ar-button"
+              class="ar-button"
+              type="button"
+            >
+              Ver en tu espacio
+            </button>
+
+            <div
+              slot="poster"
+              class="viewer__poster"
+              aria-hidden="true"
+            >
               <div class="viewer__poster-surface"></div>
             </div>
+
           </model-viewer>
+
         </section>
 
-        <section class="ar-copy" aria-label="Instrucciones de realidad aumentada">
-          <h2>Visualízalo en Realidad Aumentada</h2>
 
+        <!-- AR INFORMATION -->
+        <section
+          class="ar-copy"
+          aria-label="Instrucciones de realidad aumentada"
+        >
+
+          <h2>
+            Visualízalo en Realidad Aumentada
+          </h2>
+
+
+          <!-- GESTURES -->
           <div class="gestures">
+
             <div class="gesture">
+
               <img
                 class="gesture__icon"
                 src="assets/drag-icon.svg"
                 alt=""
                 aria-hidden="true"
               />
-              <span>Arrastra <br>para mover</span>
+
+              <span>
+                Arrastra<br />
+                para mover
+              </span>
+
             </div>
+
+
             <div class="gesture">
+
               <img
                 class="gesture__icon"
                 src="assets/pinch-icon.svg"
                 alt=""
                 aria-hidden="true"
               />
-              <span>Pellizca para <br>cambiar tamaño</span>
+
+              <span>
+                Pellizca para<br />
+                cambiar tamaño
+              </span>
+
             </div>
+
+
+            <div class="gesture">
+
+              <img
+                class="gesture__icon gesture__icon--rotate"
+                src="assets/Girar-icon.svg"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <span>
+                Gira con<br />
+                dos dedos
+              </span>
+
+            </div>
+
           </div>
 
+
+          <!-- ACTIONS -->
           <div class="actions">
-            <button class="primary-action" type="button">
-              <img class="action-icon" src="assets/AR-icon.svg" alt="" aria-hidden="true" />
-              <span>Ver en tu espacio</span>
+
+            <button
+              id="openTutorial"
+              class="primary-action"
+              type="button"
+            >
+
+              <img
+                class="action-icon"
+                src="assets/AR-icon.svg"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <span>
+                Ver en tu espacio
+              </span>
+
             </button>
-            <button class="secondary-action" type="button">
-              <img class="action-icon" src="assets/share-icon.svg" alt="" aria-hidden="true" />
-              <span>Compartir enlace</span>
+
+
+            <button
+              class="secondary-action"
+              type="button"
+            >
+
+              <img
+                class="action-icon"
+                src="assets/share-icon.svg"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <span>
+                Compartir enlace
+              </span>
+
             </button>
+
           </div>
+
         </section>
+
       </section>
+
     </main>
 
-    <footer class="footer" aria-label="Contacto">
-      <a href="https://grupoluna.com.gt" target="_blank" rel="noreferrer">
-        <img class="footer__icon" src="assets/web-icon.svg" alt="" aria-hidden="true" />
-        <span>grupoluna.com.gt</span>
+
+    <!-- FOOTER -->
+    <footer
+      class="footer"
+      aria-label="Contacto"
+    >
+
+      <a
+        href="https://grupoluna.com.gt"
+        target="_blank"
+        rel="noreferrer"
+      >
+
+        <img
+          class="footer__icon"
+          src="assets/web-icon.svg"
+          alt=""
+          aria-hidden="true"
+        />
+
+        <span>
+          grupoluna.com.gt
+        </span>
+
       </a>
+
+
       <a href="tel:+50222095665">
-        <img class="footer__icon" src="assets/phone-icon.svg" alt="" aria-hidden="true" />
-        <span>2209-6565</span>
+
+        <img
+          class="footer__icon"
+          src="assets/phone-icon.svg"
+          alt=""
+          aria-hidden="true"
+        />
+
+        <span>
+          2209-6565
+        </span>
+
       </a>
+
+
       <a href="mailto:info@grupolunagt.com">
-        <img class="footer__icon" src="assets/mail-icon.svg" alt="" aria-hidden="true" />
-        <span>info@grupolunagt.com</span>
+
+        <img
+          class="footer__icon"
+          src="assets/mail-icon.svg"
+          alt=""
+          aria-hidden="true"
+        />
+
+        <span>
+          info@grupolunagt.com
+        </span>
+
       </a>
+
     </footer>
 
+
+    <!-- AR TUTORIAL -->
+    <div
+      id="tutorialModal"
+      class="tutorial-overlay"
+      aria-hidden="true"
+    >
+
+      <div
+        class="tutorial-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="tutorialTitle"
+      >
+
+        <button
+          id="closeTutorial"
+          class="tutorial-close"
+          type="button"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+
+        <!-- SCREEN 1 -->
+        <div
+          class="tutorial-screen active"
+          data-screen="0"
+        >
+
+          <div class="tutorial-number">
+            1
+          </div>
+
+          <h3 id="tutorialTitle">
+            Ubícate en un espacio<br />
+            amplio y bien iluminado
+          </h3>
+
+        </div>
+
+
+        <!-- SCREEN 2 -->
+        <div
+          class="tutorial-screen"
+          data-screen="1"
+        >
+
+          <div class="tutorial-number">
+            2
+          </div>
+
+          <h3>
+            Apunta la cámara hacia<br/>
+            una superficie plana y mueve<br/>
+            el teléfono lentamente. 
+          </h3>
+
+        </div>
+
+
+        <!-- SCREEN 3 -->
+        <div
+          class="tutorial-screen"
+          data-screen="2"
+        >
+
+          <div class="tutorial-number">
+            3
+          </div>
+
+          <h3>
+            Arrastra con un dedo para mover<br/>
+            el modelo, o utiliza dos dedos<br/> 
+            para girar y cambiar tamaño.
+          </h3>
+
+        </div>
+
+
+        <!-- PAGINATION -->
+        <div class="tutorial-pagination">
+
+          <span
+            class="tutorial-dot active"
+            data-dot="0"
+          ></span>
+
+          <span
+            class="tutorial-dot"
+            data-dot="1"
+          ></span>
+
+          <span
+            class="tutorial-dot"
+            data-dot="2"
+          ></span>
+
+        </div>
+
+
+        <!-- NEXT -->
+    <button
+      id="tutorialNext"
+      class="tutorial-next"
+      type="button"
+    >
+      Siguiente
+    </button>
+
+    <button
+      id="startAR"
+      class="tutorial-ar-button"
+      type="button"
+    >
+      <img
+        class="action-icon"
+        src="assets/AR-icon.svg"
+        alt=""
+        aria-hidden="true"
+      />
+
+      <span>
+        Iniciar Realidad Aumentada
+      </span>
+    </button>
+
+      </div>
+
+    </div>
+
+
     <script src="script.js"></script>
+
   </body>
-</html> 
+</html>
